@@ -36,11 +36,12 @@ These angles can help in applications like solar panel positioning, weather pred
 
 ## Installation
 
-To run this project, you�ll need Python 3.6 or higher. Follow the steps below to set up the environment and install dependencies:
+To run this project, you'll need Python 3.13 or higher. Follow the steps below to set up the environment and install dependencies:
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/solar-angle-calculation.git
+
+git clone https://github.com/luismvc/solar-angle-calculation.git
 cd solar-angle-calculation
 ```
