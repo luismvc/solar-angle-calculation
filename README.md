@@ -21,16 +21,16 @@ These angles can help in applications like solar panel positioning, weather pred
 ## Table of Contents
 
 1. [Installation](#installation)
-2. [Usage](#usage)
-   - [Image Preprocessing](#image-preprocessing)
-   - [Running the Image Processing Script](#running-the-image-processing-script)
-   - [Visualizing Results](#visualizing-results)
-3. [Algorithm Details](#algorithm-details)
-4. [Requirements](#requirements)
-5. [Example Output](#example-output)
-6. [Notes](#notes)
-7. [License](#license)
-8. [Acknowledgements](#acknowledgements)
+   <!-- 2. [Usage](#usage) -->
+   <!--    - [Image Preprocessing](#image-preprocessing) -->
+   <!--    - [Running the Image Processing Script](#running-the-image-processing-script) -->
+   <!--    - [Visualizing Results](#visualizing-results) -->
+   <!-- 3. [Algorithm Details](#algorithm-details) -->
+   <!-- 4. [Requirements](#requirements) -->
+   <!-- 5. [Example Output](#example-output) -->
+   <!-- 6. [Notes](#notes) -->
+   <!-- 7. [License](#license) -->
+   <!-- 8. [Acknowledgements](#acknowledgements) -->
 
 ---
 
