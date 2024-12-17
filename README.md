@@ -6,8 +6,8 @@ This project provides Python-based tools to process a set of images, segment the
 
 The goal of this project is to detect the Sun's apparent position in images and compute solar angles, which are crucial for understanding the Sun's trajectory in the sky. The angles calculated include:
 
-- **Solar Azimuth**: The compass direction of the Sun (measured clockwise from North).
-- **Solar Elevation**: The angle of the Sun above the horizon.
+<!-- - **Solar Azimuth**: The compass direction of the Sun (measured clockwise from North). -->
+<!-- - **Solar Elevation**: The angle of the Sun above the horizon. -->
 
 These angles can help in applications like solar panel positioning, weather prediction, and space observation.
 
@@ -16,7 +16,7 @@ These angles can help in applications like solar panel positioning, weather pred
 - **Image Segmentation**: Detects the Sun's apparent position in each image.
 - **Solar Angle Calculation**: Computes azimuth and elevation based on the Sun's detected position and known geographic parameters (e.g., location and time).
 - **Flexible Workflow**: Can process any set of images and can be adapted for different geographic locations and times.
-<!-- - **Output Visualization**: Includes the ability to overlay the Sun's position on the images and visualize solar angles. -->
+  <!-- - **Output Visualization**: Includes the ability to overlay the Sun's position on the images and visualize solar angles. -->
 
 ## Table of Contents
 
