@@ -16,7 +16,7 @@ These angles can help in applications like solar panel positioning, weather pred
 - **Image Segmentation**: Detects the Sun's apparent position in each image.
 - **Solar Angle Calculation**: Computes azimuth and elevation based on the Sun's detected position and known geographic parameters (e.g., location and time).
 - **Flexible Workflow**: Can process any set of images and can be adapted for different geographic locations and times.
-- **Output Visualization**: Includes the ability to overlay the Sun�s position on the images and visualize solar angles.
+<!-- - **Output Visualization**: Includes the ability to overlay the Sun's position on the images and visualize solar angles. -->
 
 ## Table of Contents
 
