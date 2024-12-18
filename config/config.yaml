@@ -1,3 +1,7 @@
 filePath: data/testing_img
 
 radius_dome: 605
+
+# CIO Ags lat and lon
+latitude: 21.844741
+longitude: -102.3438367

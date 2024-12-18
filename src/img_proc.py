@@ -2,12 +2,14 @@ from re import DEBUG
 
 import cv2
 import numpy as np
+from pysolar.solar import *
 
 from src.utils import load_data, log, split_string
 
 DEBUG = True
 
 
+# Image class
 class Image:
     def __init__(self, image_path=None, id=None):
         """
@@ -100,6 +102,7 @@ class Image:
             print("No image to display!")
 
 
+# Image processing Class
 class img_proc:
     def __init__(self, config_param):
 
@@ -109,6 +112,7 @@ class img_proc:
         self.n_imgs = 0
         self.imgs = []
         self.dome_imgs = []
+        self.corrected_imgs = []
 
         self.radius_dome = 0
 
@@ -193,7 +197,7 @@ class img_proc:
 
             self.dome_imgs.append(dome_img)
 
-        self.display_img_dome(ind=0)
+        # self.display_img_dome(ind=0)
 
     def spherize_image_using_undistort(self) -> int:
         """
@@ -201,6 +205,42 @@ class img_proc:
         Using appropriate camera calibration parameters, we simulate a spherical effect that can
         "warp" the image as if it were wrapped around a sphere.
         """
+
+        r = 1524  # contanste de aberracion esferica
+        rr = 710 - 100
+        Cc0, Cc1, Cc2, Cc3 = 8.0, 0.0, 414, 572
+
+        K = np.array([[r, 0.0, rr + 00.0], [0.0, r, rr + 0.0], [0.0, 0.0, 1.0]])
+        D = np.array([[Cc0], [Cc1], [Cc2], [Cc3]])
+
+        # undistorted_img = None
+        for dome_img in self.dome_imgs:
+
+            # cv2.imshow("dome_img", dome_img.image)
+            # cv2.waitKey(0)
+
+            dim = (dome_img.w, dome_img.h)
+
+            new_K = cv2.fisheye.estimateNewCameraMatrixForUndistortRectify(
+                K, D, dim, np.eye(3), balance=0.0
+            )
+            map1, map2 = cv2.fisheye.initUndistortRectifyMap(
+                K, D, np.eye(3), new_K, dim, cv2.CV_16SC2
+            )
+            undistorted_img = cv2.remap(
+                dome_img.image,
+                map1,
+                map2,
+                interpolation=cv2.INTER_LINEAR,
+                borderMode=cv2.BORDER_CONSTANT,
+            )
+
+            corrected_img = Image()
+            corrected_img.set_img(undistorted_img, dome_img.id)
+
+            self.corrected_imgs.append(corrected_img)
+
+        # cv2.imshow("corrected", undistorted_img)
 
         return 0
 
@@ -212,12 +252,15 @@ def process(parameters: dict) -> int:
 
     img_proc_ = img_proc(parameters)
     img_proc_.load_data()
+    img_proc_.display_one_img(ind=0)
 
     # visualizing the best circle that fits the dome
     # img_proc_.draw_circle(ind=0, radius_=parameters["radius_dome"])
 
     img_proc_.crop_img(radius=parameters["radius_dome"])
 
-    img_proc_.display_one_img(ind=0)
+    img_proc_.spherize_image_using_undistort()
+
+    cv2.waitKey(0)
 
     return 0
